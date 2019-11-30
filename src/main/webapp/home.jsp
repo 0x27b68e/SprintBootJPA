@@ -12,7 +12,6 @@
 		<form action="addStudent">
 		<input type="text" name="id"> Id <br />
 		<input type="text" name="name"> Name <br />
-		<input type="text" name="score"> Score <br />
 		<input type="submit" value="Submit">
 	</body>
 </html>
