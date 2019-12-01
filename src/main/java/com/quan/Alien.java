@@ -1,7 +1,12 @@
 package com.quan;
 
-public class Alien {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+class Alien {
 	
+	@Id
 	private String aid;
 	private String name;
 	

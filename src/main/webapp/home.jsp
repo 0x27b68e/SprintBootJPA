@@ -8,7 +8,7 @@
 </head>
 <body>
 	
-	<p>Add Student</p>
+	<p>Home page</p>
 		<form action="addStudent">
 		<input type="text" name="id"> Id <br />
 		<input type="text" name="name"> Name <br />
