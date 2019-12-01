@@ -1,11 +1,15 @@
-package com.quan;
+package com.quan.service;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-class Alien {
+public class Alien {
 	
+	
+	public Alien() {
+		super();
+	}
 	@Id
 	private String aid;
 	private String name;

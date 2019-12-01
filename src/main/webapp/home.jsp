@@ -9,8 +9,8 @@
 <body>
 	
 	<p>Home page</p>
-		<form action="addStudent">
-		<input type="text" name="id"> Id <br />
+		<form action="addAlien">
+		<input type="text" name="aid"> Id <br />
 		<input type="text" name="name"> Name <br />
 		<input type="submit" value="Submit">
 	</body>
