@@ -8,16 +8,7 @@
 </head>
 <body>
 	
-	<p>Home page</p>
-		<form action="addAlien">
-		<input type="text" name="aid"> Id <br />
-		<input type="text" name="name"> Name <br />
-		<input type="submit" value="Submit">
-		</form>
-		<br />
-		<form action="getAlien">
-		<input type="text" name="aid"> Id <br />
-		<input type="submit" value="Submit">
-		</form>
+	<p>Show Alien</p>
+	${alien}
 	</body>
 </html>
