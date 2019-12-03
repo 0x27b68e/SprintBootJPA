@@ -1,5 +1,6 @@
 package com.quan;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,20 @@ public class HomeController {
 		ModelAndView modelAndView = new ModelAndView("showAlien.jsp");
 		Alien alien = alienService.findById(aid).orElse(new Alien());
 		modelAndView.addObject(alien);
+		return modelAndView;
+	}
+	
+	@RequestMapping("/getByName")
+	public String getByName() {
+		return "getAlienByName.jsp";
+	}
+	
+	@RequestMapping("/getAlienByName")
+	public ModelAndView  getAlienByName(@RequestParam String name) {
+		ModelAndView modelAndView = new ModelAndView("showListAlien.jsp");
+		List<Alien> aliens = alienService.findByName(name);
+		System.out.println(aliens);
+		modelAndView.addObject(aliens);
 		return modelAndView;
 	}
 
