@@ -38,16 +38,23 @@ public class HomeController {
 		return modelAndView;
 	}
 	
-	@RequestMapping("/getByName")
-	public String getByName() {
-		return "getAlienByName.jsp";
+	@RequestMapping("/getByTech")
+	public String getByTech() {
+		return "getAlienByTech.jsp";
 	}
 	
-	@RequestMapping("/getAlienByName")
-	public ModelAndView  getAlienByName(@RequestParam String name) {
+	@RequestMapping("/getAlienByTech")
+	public ModelAndView  getAlienByTech(@RequestParam String tech) {
 		ModelAndView modelAndView = new ModelAndView("showListAlien.jsp");
-		List<Alien> aliens = alienService.findByName(name);
+		
+		//find by Tech property
+		List<Alien> aliens = alienService.findByTech(tech);
 		System.out.println(aliens);
+		
+		//find by Tech but sorted
+		List<Alien> findByNameSorted = alienService.findByNameSorted(tech);
+		System.out.println(findByNameSorted);
+		
 		modelAndView.addObject(aliens);
 		return modelAndView;
 	}

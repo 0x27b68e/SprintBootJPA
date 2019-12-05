@@ -9,8 +9,8 @@
 <body>
 		<br />
 		<p>get by Name</p>
-		<form action="getAlienByName">
-		<input type="text" name="name"> Id <br />
+		<form action="getAlienByTech">
+		<input type="text" name="tech"> Id <br />
 		<input type="submit" value="Submit">
 		</form>
 	</body>
