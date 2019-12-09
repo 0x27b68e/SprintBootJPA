@@ -1,5 +1,8 @@
 package com.quan;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,15 +18,23 @@ public class HomeController {
 	AlienService alienService;
 	
 	@RequestMapping("/aliens")
-	public Iterable<Alien>  getAliens() {
-		Iterable<Alien> alien = alienService.findAll();
-		return alien; // return data instead of view name as in MVC
+	public List<Alien>  getAliens() {
+		List<Alien> aliens = alienService.findAll();
+		return aliens;
 	}
 	
 	@RequestMapping("/alien/{aid}")
 	public Alien  getAlien(@PathVariable int aid) {
 		Alien alien = alienService.findById(aid).orElse(null);
-		return alien; // return data instead of view name as in MVC
+		Optional<Alien> findById = alienService.findById(aid);
+		System.out.println(findById);
+		return alien;
+	}
+	
+	@RequestMapping("/delete/{aid}")
+	public String deleteAlien(@PathVariable int aid) {
+		alienService.deleteById(aid);
+		return aid + " have been delete successfully";
 	}
 
 }
