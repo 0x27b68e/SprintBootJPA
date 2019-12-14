@@ -16,8 +16,10 @@ public class HomeController {
 	
 	@Autowired(required = true)
 	AlienService alienService;
-	
-	@RequestMapping("/aliens")
+	 
+	//This method will produce xml, not json
+	//if we call request json from client, then 406 code will show, Not Acceptable
+	@RequestMapping(path = "/aliens", produces = {"application/xml"})
 	public List<Alien>  getAliens() {
 		List<Alien> aliens = alienService.findAll();
 		return aliens;
