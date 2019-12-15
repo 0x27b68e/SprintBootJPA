@@ -5,7 +5,10 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.quan.service.Alien;
@@ -19,10 +22,17 @@ public class HomeController {
 	 
 	//This method will produce xml, not json
 	//if we call request json from client, then 406 code will show, Not Acceptable
-	@RequestMapping(path = "/aliens", produces = {"application/xml"})
+	@RequestMapping(path = "/aliens", produces = {"application/xml", "application/json"})
 	public List<Alien>  getAliens() {
 		List<Alien> aliens = alienService.findAll();
 		return aliens;
+	}
+	
+	@PostMapping(path = "/addAlien", consumes = {"application/json"}) // chỉ nhận data là json
+	//Nếu data từ postman là raw, thì phải dùng @RequestBody
+	public Alien  addAlien(@RequestBody Alien alien) {
+		alienService.save(alien);
+		return alien;
 	}
 	
 	@RequestMapping("/alien/{aid}")
